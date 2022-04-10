@@ -1,11 +1,14 @@
 import React from 'react'
+import styled from "styled-components"
 
 function Header() {
   return (
-    <div>
-        Header
-    </div>
+    <Header>
+        
+    </Header>
   )
 }
 
-export default Header
+export default Header;
+
+const Header = styled.div``;

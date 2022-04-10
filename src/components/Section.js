@@ -7,7 +7,7 @@ function Section({title,description,leftBtnText,rightBtnText,backgroundImg}) {
     <Wrap bgImage={backgroundImg}>
       <ItemText>
         <h1>{ title }</h1>
-        <p>{ description}</p>
+        <p><b>{ description}</b></p>
       </ItemText>
       <Buttons>
         <ButtonGroup>
