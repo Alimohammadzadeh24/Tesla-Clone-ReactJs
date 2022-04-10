@@ -1,27 +1,34 @@
 import React from "react";
 import styled from "styled-components";
+import Fade from "react-reveal/Fade";
 import "../index.css";
 
-function Section({title,description,leftBtnText,rightBtnText,backgroundImg}) {
+function Section({
+  title,
+  description,
+  leftBtnText,
+  rightBtnText,
+  backgroundImg,
+}) {
   return (
     <Wrap bgImage={backgroundImg}>
-      <ItemText>
-        <h1>{ title }</h1>
-        <p><b>{ description}</b></p>
-      </ItemText>
-      <Buttons>
-        <ButtonGroup>
-          <LeftButton>
-            { leftBtnText}
-          </LeftButton>
-          { rightBtnText && 
-            <RightButton>
-            { rightBtnText}
-          </RightButton>
-          }
-        </ButtonGroup>
-        <DownArrow src="../images/down-arrow.svg" />
-      </Buttons>
+      <Fade bottom>
+        <ItemText>
+          <h1>{title}</h1>
+          <p>
+            <b>{description}</b>
+          </p>
+        </ItemText>
+      </Fade>
+      <Fade bottom>
+        <Buttons>
+          <ButtonGroup>
+            <LeftButton>{leftBtnText}</LeftButton>
+            {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
+          </ButtonGroup>
+          <DownArrow src="../images/down-arrow.svg" />
+        </Buttons>
+      </Fade>
     </Wrap>
   );
 }
@@ -34,7 +41,7 @@ const Wrap = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: ${props => `url('../images/${props.bgImage}');`}};
+  background-image: ${(props) => `url('../images/${props.bgImage}');`}};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -51,7 +58,7 @@ const Buttons = styled.div``;
 const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 30px;
-  @media (max-width: 768px){
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
